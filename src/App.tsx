@@ -15,7 +15,7 @@ function App() {
         <directionalLight color="gray" position={[-2, 20, 20]} />
         <Level />
         <OrbitControls makeDefault />
-        <Stats />
+        {import.meta.env.DEV && <Stats />}
       </Canvas>
       <ScoreCard />
     </>

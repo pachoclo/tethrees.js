@@ -16,7 +16,6 @@ type Handlers = {
 }
 
 /**
- *
  * Treat this as an event handler registration table
  */
 export function useKeyboardControls(handlers: Handlers) {
