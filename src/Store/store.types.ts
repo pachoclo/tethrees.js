@@ -24,7 +24,7 @@ export interface LevelStore {
   y: number
   orientation: Orientation
   rowsCleared: number
-  camera: Camera
+  help: boolean
 
   drop: () => void
   moveLeft: () => void
@@ -33,6 +33,6 @@ export interface LevelStore {
   dropAllTheWay: () => void
   clearRows: () => void
   setLevelState: (newLevelState: LevelState) => void
-  setCamera: (camera: Camera) => void
   isGameOver: () => void
+  toggleHelp: () => void
 }

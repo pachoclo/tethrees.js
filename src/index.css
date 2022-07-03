@@ -51,3 +51,42 @@ p {
   padding-top: 15px;
   padding-right: 10px;
 }
+
+.help-controls {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 20px;
+  left: 20px;
+  min-height: 100px;
+  width: 240px;
+  border: 1px solid silver;
+  color: darkorchid;
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  font-size: 12px;
+}
+
+.help-controls p {
+  padding: 12px;
+}
+
+.help-controls p:not(:last-child) {
+  border-bottom: 1px solid silver;
+}
+
+.help-controls span {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  padding-right: 10px;
+  width: 60px;
+  display: inline-block;
+}
+
+.help-controls span.arrow {
+  font-size: 20px;
+  padding-right: 10px;
+  font-weight: normal;
+}

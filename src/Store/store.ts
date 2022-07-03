@@ -1,4 +1,3 @@
-import { Camera } from '@react-three/fiber'
 import create from 'zustand'
 import {
   allPieces,
@@ -19,6 +18,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
   y: initialY,
   rowsCleared: 0,
   camera: cameras.one,
+  help: true,
 
   moveLeft() {
     set((state) => {
@@ -165,6 +165,12 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
     if (state.y === initialY && isThereBlockOverlap(nextState)) {
       state.setLevelState('GAME_OVER')
     }
+  },
+
+  toggleHelp() {
+    set((state) => ({
+      help: !state.help,
+    }))
   },
 }))
 

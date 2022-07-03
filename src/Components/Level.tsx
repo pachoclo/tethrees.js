@@ -1,6 +1,5 @@
 import { GroupProps, useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
-import { cameras } from '../constants'
 import { useKeyboardControls } from '../hooks/useKeyboardControls'
 import { useLevelStore } from '../Store/store'
 import { Board } from './Board'
@@ -24,8 +23,8 @@ export function Level() {
   let dropAllTheWay = useLevelStore((store) => store.dropAllTheWay)
   let clearRows = useLevelStore((store) => store.clearRows)
   let setLevelState = useLevelStore((store) => store.setLevelState)
-  let setCamera = useLevelStore((store) => store.setCamera)
   let isGameOver = useLevelStore((store) => store.isGameOver)
+  let toggleHelp = useLevelStore((store) => store.toggleHelp)
 
   // register actions as event handlers to key presses
   useKeyboardControls({
@@ -36,8 +35,7 @@ export function Level() {
     space: clearRows,
     enter: () => setLevelState('PLAYING'),
     p: () => (levelState === 'PLAYING' ? setLevelState('PAUSED') : setLevelState('PLAYING')),
-    one: () => setCamera(cameras.one),
-    two: () => setCamera(cameras.two),
+    h: toggleHelp,
   })
 
   // === start game loop

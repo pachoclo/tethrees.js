@@ -4,8 +4,11 @@ import { Help } from './Components/Help'
 import { Level } from './Components/Level'
 import { ScoreCard } from './Components/ScoreCard'
 import { cameras } from './constants'
+import { useLevelStore } from './Store/store'
 
 function App() {
+  let showHelp = useLevelStore((store) => store.help)
+
   return (
     <>
       <Canvas camera={cameras.one} orthographic={false}>
@@ -14,9 +17,9 @@ function App() {
         <directionalLight color="gray" position={[-2, 20, 20]} />
         <Level />
         <OrbitControls makeDefault />
-        {import.meta.env.DEV && <Stats showPanel={0} />}
+        {import.meta.env.DEV && !showHelp && <Stats showPanel={0} />}
       </Canvas>
-      <Help />
+      {showHelp && <Help />}
       <ScoreCard />
     </>
   )

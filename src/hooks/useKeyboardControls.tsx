@@ -8,15 +8,14 @@ type Handlers = {
   space: () => void
   enter: () => void
   p: () => void
-  one: () => void
-  two: () => void
+  h: () => void
 }
 
 /**
  * Treat this as an event handler registration table
  */
 export function useKeyboardControls(handlers: Handlers) {
-  let { up, down, left, right, space, enter, p, one, two } = handlers
+  let { up, down, left, right, space, enter, p, h } = handlers
 
   const handleKeyDown = (e: KeyboardEvent) => {
     switch (e.key) {
@@ -41,11 +40,8 @@ export function useKeyboardControls(handlers: Handlers) {
       case 'p':
         p()
         break
-      case '1':
-        one()
-        break
-      case '2':
-        two()
+      case 'h':
+        h()
         break
       default:
         break
