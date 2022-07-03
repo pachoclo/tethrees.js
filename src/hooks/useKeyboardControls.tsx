@@ -1,8 +1,5 @@
 import { useEffect } from 'react'
 
-export type ShiftDirection = 'left' | 'right'
-export type RotationDirection = 'clockwise' | 'counter-clockwise'
-
 type Handlers = {
   up: () => void
   down: () => void

@@ -159,12 +159,6 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
     }
   },
 
-  setCamera(camera: Camera) {
-    set((_) => ({
-      camera,
-    }))
-  },
-
   isGameOver() {
     let state = get()
     let nextState = { ...state, y: state.y + 1 }

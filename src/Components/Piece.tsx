@@ -13,8 +13,7 @@ export type PieceTwoProps = {
 } & GroupProps
 
 export const Piece = React.forwardRef<GroupProps | undefined, PieceTwoProps>(
-  ({ color = '#730FC3', orientation, showGrid, piece, ...props }, ref) => {
-    // let matrix = piece[orientation]
+  ({ color = '#730FC3', orientation, showGrid = false, piece, ...props }, ref) => {
     return (
       <group {...props} ref={ref}>
         {orientation.map((row, rowIndex) =>
@@ -29,13 +28,13 @@ export const Piece = React.forwardRef<GroupProps | undefined, PieceTwoProps>(
               )
           )
         )}
-        {/* {showGrid && <PieceGrid />} */}
+        {showGrid && <PieceGrid />}
       </group>
     )
   }
 )
 
-export function PieceGrid({ depthTest = true }: { depthTest?: boolean }) {
+function PieceGrid({ depthTest = true }: { depthTest?: boolean }) {
   const unit = 1 - Constants.blockGap
   let cols = 4
   let rows = 4

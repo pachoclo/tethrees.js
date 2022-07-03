@@ -53,8 +53,6 @@ export function Level() {
     if (levelState === 'PLAYING') {
       if (clock.elapsedTime - lastDropTime > dropInterval) {
         isGameOver()
-        // let positionY = pieceRef.current!.position.y
-        // pieceRef.current!.position.y = positionY - 1
         dropPiece()
         setLastDropTime(clock.elapsedTime)
       }
