@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: monospace;
+}
+
+p {
+  padding: 0;
+}
+
+.score-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 20px;
+  right: 20px;
+  height: 100px;
+  width: 200px;
+  border: 1px solid silver;
+  color: darkorchid;
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  font-size: 12px;
+}
+
+.score-card p {
+  padding: 14px;
+}
+.score-card p:not(:last-child) {
+  border-bottom: 1px solid silver;
+}
+
+.score-card span {
+  font-size: 20px;
+  padding-top: 15px;
+  padding-right: 10px;
+}
