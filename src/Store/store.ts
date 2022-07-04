@@ -172,6 +172,12 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
       help: !state.help,
     }))
   },
+
+  pause() {
+    let store = get()
+    let nextState: LevelState = store.levelState === 'PAUSED' ? 'PLAYING' : 'PAUSED'
+    store.setLevelState(nextState)
+  },
 }))
 
 /**
@@ -226,12 +232,8 @@ function copyPieceToBoard({ board, piece, x, y, orientation }: LevelStore) {
 }
 
 function isValidStateTransition(fromState: LevelState, toState: LevelState) {
-  let validNextStates = getValidNextStates(fromState)
+  let validNextStates = stateTransitions[fromState]
   return validNextStates.some((validState) => toState === validState)
-}
-
-function getValidNextStates(fromState: LevelState) {
-  return stateTransitions[fromState]
 }
 
 function getRandomPiece() {

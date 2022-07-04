@@ -26,13 +26,14 @@ export interface LevelStore {
   rowsCleared: number
   help: boolean
 
-  drop: () => void
   moveLeft: () => void
   moveRight: () => void
   rotate: () => void
+  drop: () => void
   dropAllTheWay: () => void
   clearRows: () => void
   setLevelState: (newLevelState: LevelState) => void
   isGameOver: () => void
   toggleHelp: () => void
+  pause: () => void
 }

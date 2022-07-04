@@ -2,7 +2,7 @@ import { Edges, Trail } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
 import React from 'react'
 import { Constants } from '../constants'
-import { Piece as PieceType } from '../Store/store.types'
+import { Piece as PieceType } from '../store/store.types'
 import { Block } from './Block'
 
 export type PieceTwoProps = {

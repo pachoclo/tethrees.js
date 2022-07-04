@@ -2,9 +2,11 @@ import { OrbitControls, Stats } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Help } from './Components/Help'
 import { Level } from './Components/Level'
+import { MobileControls } from './Components/MobileControls'
 import { ScoreCard } from './Components/ScoreCard'
 import { cameras } from './constants'
-import { useLevelStore } from './Store/store'
+import { useLevelStore } from './store/store'
+import { isMobile } from 'react-device-detect'
 
 function App() {
   let showHelp = useLevelStore((store) => store.help)
@@ -19,8 +21,13 @@ function App() {
         <OrbitControls makeDefault />
         {import.meta.env.DEV && !showHelp && <Stats showPanel={0} />}
       </Canvas>
-      {showHelp && <Help />}
-      <ScoreCard />
+      {!isMobile && showHelp && <Help />}
+      {isMobile && (
+        <>
+          <MobileControls />
+        </>
+      )}
+      {!isMobile && <ScoreCard />}
     </>
   )
 }

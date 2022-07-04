@@ -90,3 +90,34 @@ p {
   padding-right: 10px;
   font-weight: normal;
 }
+
+.mobile-controls {
+  position: absolute;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  justify-content: space-between;
+  bottom: 20px;
+  right: 5px;
+  min-height: 50px;
+  width: 100px;
+  color: darkorchid;
+  backdrop-filter: blur(20px);
+  font-size: 12px;
+}
+
+.mobile-controls-left {
+  left: 5px;
+  right: auto;
+}
+
+.mobile-controls button {
+  background: none;
+  color: darkorchid;
+  background-color: white;
+  border: 1px solid silver;
+  font-size: 20px;
+  border-radius: 8px;
+  border-radius: 8px;
+  height: 100px;
+}

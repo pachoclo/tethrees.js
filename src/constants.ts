@@ -1,5 +1,5 @@
 import { Camera } from '@react-three/fiber'
-import { LevelState, Orientation, Piece } from './Store/store.types'
+import { LevelState, Piece } from './store/store.types'
 
 export const Constants = {
   blockGap: 0.06,

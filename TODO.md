@@ -1,0 +1,7 @@
+- [ ] Simplify Level.tsx
+  - [ ] Nicer way of loading the store?
+    - [ ] Am I rendering the whole level too often?
+  - [ ] Should `useKeyboardControls` be moved higher? Maybe `Game` or `GameMaster`
+    - [ ] For now I'll put the actions directly in the hook
+  - [ ]
+  - [ ]
