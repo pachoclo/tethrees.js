@@ -16,27 +16,13 @@ export function Level() {
   let orientation = useLevelStore((store) => store.orientation)
 
   // get actions
-  let moveLeft = useLevelStore((store) => store.moveLeft)
-  let moveRight = useLevelStore((store) => store.moveRight)
-  let rotate = useLevelStore((store) => store.rotate)
-  let dropPiece = useLevelStore((store) => store.drop)
-  let dropAllTheWay = useLevelStore((store) => store.dropAllTheWay)
-  let clearRows = useLevelStore((store) => store.clearRows)
   let setLevelState = useLevelStore((store) => store.setLevelState)
   let isGameOver = useLevelStore((store) => store.isGameOver)
-  let toggleHelp = useLevelStore((store) => store.toggleHelp)
+  let clearRows = useLevelStore((store) => store.clearRows)
+  let dropPiece = useLevelStore((store) => store.drop)
 
-  // register actions as event handlers to key presses
-  useKeyboardControls({
-    left: moveLeft,
-    right: moveRight,
-    up: rotate,
-    down: dropAllTheWay,
-    space: clearRows,
-    enter: () => setLevelState('PLAYING'),
-    p: () => (levelState === 'PLAYING' ? setLevelState('PAUSED') : setLevelState('PLAYING')),
-    h: toggleHelp,
-  })
+  // register actions as event handlers to key ˝
+  useKeyboardControls()
 
   // === start game loop
   let [lastDropTime, setLastDropTime] = useState(0)
