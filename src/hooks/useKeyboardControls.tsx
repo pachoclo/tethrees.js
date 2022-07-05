@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLevelStore } from '../xtore/xtore'
+import { useLevelStore } from '../store/store'
 
 type Handlers = {
   up: () => void
@@ -16,7 +16,6 @@ type Handlers = {
  * Treat this as an event handler registration table
  */
 export function useKeyboardControls() {
-  // get actions
   let moveLeft = useLevelStore((store) => store.moveLeft)
   let moveRight = useLevelStore((store) => store.moveRight)
   let rotate = useLevelStore((store) => store.rotate)
@@ -26,6 +25,7 @@ export function useKeyboardControls() {
   let toggleHelp = useLevelStore((store) => store.toggleHelp)
   let togglePause = useLevelStore((store) => store.pause)
 
+  // why am I doing this?
   let handlers: Handlers = {
     left: moveLeft,
     right: moveRight,

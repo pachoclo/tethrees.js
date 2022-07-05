@@ -1,4 +1,4 @@
-import { useLevelStore } from '../xtore/xtore'
+import { useLevelStore } from '../store/store'
 
 export function MobileControls() {
   let levelState = useLevelStore((store) => store.levelState)

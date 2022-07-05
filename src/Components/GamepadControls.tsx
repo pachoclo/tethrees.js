@@ -1,5 +1,5 @@
 import Gamepad from 'react-gamepad'
-import { useLevelStore } from '../xtore/xtore'
+import { useLevelStore } from '../store/store'
 
 export default function GamepadControls() {
   let moveLeft = useLevelStore((store) => store.moveLeft)

@@ -1,7 +1,7 @@
 import { GroupProps, useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 import { useKeyboardControls } from '../hooks/useKeyboardControls'
-import { useLevelStore } from '../xtore/xtore'
+import { useLevelStore } from '../store/store'
 import { Board } from './Board'
 import { Piece } from './Piece'
 
