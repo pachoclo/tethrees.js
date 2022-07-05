@@ -1,4 +1,4 @@
-import { useLevelStore } from '../store/store'
+import { useLevelStore } from '../xtore/xtore'
 
 export function ScoreCard() {
   let levelState = useLevelStore((state) => state.levelState)

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLevelStore } from '../store/store'
+import { useLevelStore } from '../xtore/xtore'
 
 type Handlers = {
   up: () => void

@@ -7,7 +7,7 @@ import {
   initialY,
   stateTransitions,
 } from '../constants'
-import { LevelState, LevelStore, Orientation } from './store.types'
+import { LevelState, LevelStore, Orientation } from './xtore.types'
 
 export const useLevelStore = create<LevelStore>()((set, get) => ({
   levelState: 'READY',

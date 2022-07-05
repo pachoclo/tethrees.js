@@ -6,7 +6,7 @@ import { Level } from './Components/Level'
 import { MobileControls } from './Components/MobileControls'
 import { ScoreCard } from './Components/ScoreCard'
 import { cameras } from './constants'
-import { useLevelStore } from './store/store'
+import { useLevelStore } from './xtore/xtore'
 
 import { useState } from 'react'
 import GamepadControls from './Components/GamepadControls'

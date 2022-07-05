@@ -1,4 +1,4 @@
-import { useLevelStore } from '../store/store'
+import { useLevelStore } from '../xtore/xtore'
 import { Block } from './Block'
 
 export function Board() {
