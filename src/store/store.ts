@@ -71,7 +71,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
 
           return {
             ...state,
-            levelState: 'NEW_PIECE',
+            levelState: 'PLAYING',
             board: newBoard,
             piece: newPiece,
             x: initialX,
@@ -108,7 +108,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
 
         return {
           ...state,
-          levelState: 'NEW_PIECE',
+          levelState: 'PLAYING',
           board: newBoard,
           piece: newPiece,
           orientation: Orientation.up,
@@ -154,15 +154,13 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
   setLevelState(newLevelState: LevelState) {
     let isValid = isValidStateTransition(get().levelState, newLevelState)
     if (isValid) {
-      console.log('level state: ', newLevelState)
       set((_) => ({ levelState: newLevelState }))
     }
   },
 
   isGameOver() {
     let state = get()
-    let nextState = { ...state, y: state.y + 1 }
-    if (state.y === initialY && isThereBlockOverlap(nextState)) {
+    if (isBoardFull(state.board)) {
       state.setLevelState('GAME_OVER')
     }
   },
@@ -207,13 +205,18 @@ function isThereBlockOverlap({ board, piece, x, y, orientation }: LevelStore) {
 }
 
 function copyPieceToBoard({ board, piece, x, y, orientation }: LevelStore) {
-  let newBoard = board.map((row) => row.map((value) => value))
+  let newBoard = board.map((row) => Array.from(row))
 
   for (
     let pieceY = 0, boardY = y;
     pieceY < piece.orientations[orientation].length;
     pieceY++, boardY++
   ) {
+    if (boardY < 0) {
+      // skip if piece's block is outside the board's bounds
+      continue
+    }
+
     for (
       let pieceX = 0, boardX = x;
       pieceX < piece.orientations[orientation][pieceY].length;
@@ -238,4 +241,20 @@ function isValidStateTransition(fromState: LevelState, toState: LevelState) {
 
 function getRandomPiece() {
   return allPieces[Math.floor(Math.random() * allPieces.length)]
+}
+
+/**
+ * Board is full if the top row contains any non-empty cells
+ */
+function isBoardFull(board: LevelStore['board']) {
+  let topRowIndex = 0
+  let topRow = board[topRowIndex]
+  let rowLength = topRow.length
+
+  // check if the top row contains any non-empty cells (exclude first and last column)
+  let isTopRowEmpty = topRow.every(
+    (cell, colIndex) => colIndex === 0 || colIndex === rowLength - 1 || cell === 0
+  )
+
+  return !isTopRowEmpty
 }

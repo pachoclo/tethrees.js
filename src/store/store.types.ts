@@ -14,7 +14,7 @@ export type Piece = {
   }
 }
 
-export type LevelState = 'NEW_PIECE' | 'READY' | 'PLAYING' | 'PAUSED' | 'GAME_OVER' | 'WIN'
+export type LevelState = 'READY' | 'PLAYING' | 'PAUSED' | 'GAME_OVER' | 'WIN'
 
 export interface LevelStore {
   levelState: LevelState

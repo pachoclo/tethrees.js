@@ -29,14 +29,14 @@ export function Level() {
   let dropInterval = 1 // in seconds
 
   useFrame(({ clock }) => {
-    if (levelState === 'NEW_PIECE') {
-      isGameOver()
-      setLevelState('PLAYING')
+    isGameOver()
+
+    if (levelState === 'GAME_OVER') {
+      return
     }
 
     if (levelState === 'PLAYING') {
       if (clock.elapsedTime - lastDropTime > dropInterval) {
-        isGameOver()
         dropPiece()
         setLastDropTime(clock.elapsedTime)
       }

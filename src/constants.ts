@@ -244,8 +244,6 @@ export const allPieces: Piece[] = [
 ]
 
 export const stateTransitions: { [key in LevelState]: LevelState[] } = {
-  // NEW_GAME: ['NEW_PIECE'],
-  NEW_PIECE: ['READY', 'PLAYING', 'PAUSED'],
   READY: ['PLAYING', 'PAUSED'],
   PLAYING: ['PAUSED', 'GAME_OVER', 'WIN'],
   PAUSED: ['READY', 'PLAYING'],
@@ -254,7 +252,7 @@ export const stateTransitions: { [key in LevelState]: LevelState[] } = {
 }
 
 export const initialX = 4
-export const initialY = -4
+export const initialY = -3
 
 type Cameras = {
   one: Camera

@@ -39,7 +39,6 @@ export function useKeyboardControls() {
 
   const handleKeyDown = React.useMemo(
     () => (e: KeyboardEvent) => {
-      console.log('KeyboardEvent ', e)
       let { up, down, left, right, space, enter, p, h } = handlers
       switch (e.key) {
         case 'ArrowUp':
@@ -76,7 +75,6 @@ export function useKeyboardControls() {
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown)
     return () => {
-      console.log('removing EL')
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [handleKeyDown])
