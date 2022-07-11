@@ -23,6 +23,9 @@ export function Help() {
         <span>P</span> Pause / unpause
       </p>
       <p>
+        <span>R</span> Restart level
+      </p>
+      <p>
         <span>H</span> Show / hide help
       </p>
       <p>

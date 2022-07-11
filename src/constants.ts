@@ -247,7 +247,7 @@ export const stateTransitions: { [key in LevelState]: LevelState[] } = {
   READY: ['PLAYING', 'PAUSED'],
   PLAYING: ['PAUSED', 'GAME_OVER', 'WIN'],
   PAUSED: ['READY', 'PLAYING'],
-  GAME_OVER: [],
+  GAME_OVER: ['READY'],
   WIN: [],
 }
 

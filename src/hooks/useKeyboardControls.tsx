@@ -10,6 +10,7 @@ type Handlers = {
   enter: () => void
   p: () => void
   h: () => void
+  r: () => void
 }
 
 /**
@@ -24,6 +25,7 @@ export function useKeyboardControls() {
   let clearRows = useLevelStore((store) => store.clearRows)
   let toggleHelp = useLevelStore((store) => store.toggleHelp)
   let togglePause = useLevelStore((store) => store.pause)
+  let restart = useLevelStore((store) => store.restart)
 
   // why am I doing this?
   let handlers: Handlers = {
@@ -35,11 +37,12 @@ export function useKeyboardControls() {
     enter: () => setLevelState('PLAYING'),
     p: togglePause,
     h: toggleHelp,
+    r: restart,
   }
 
   const handleKeyDown = React.useMemo(
     () => (e: KeyboardEvent) => {
-      let { up, down, left, right, space, enter, p, h } = handlers
+      let { up, down, left, right, space, enter, p, h, r } = handlers
       switch (e.key) {
         case 'ArrowUp':
           up()
@@ -64,6 +67,9 @@ export function useKeyboardControls() {
           break
         case 'h':
           h()
+          break
+        case 'r':
+          r()
           break
         default:
           break

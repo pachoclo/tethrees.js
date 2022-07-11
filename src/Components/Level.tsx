@@ -21,7 +21,7 @@ export function Level() {
   let clearRows = useLevelStore((store) => store.clearRows)
   let dropPiece = useLevelStore((store) => store.drop)
 
-  // register actions as event handlers to key ˝
+  // register actions as event handlers to key down
   useKeyboardControls()
 
   // === start game loop
@@ -29,11 +29,11 @@ export function Level() {
   let dropInterval = 1 // in seconds
 
   useFrame(({ clock }) => {
-    isGameOver()
-
     if (levelState === 'GAME_OVER') {
       return
     }
+
+    isGameOver()
 
     if (levelState === 'PLAYING') {
       if (clock.elapsedTime - lastDropTime > dropInterval) {

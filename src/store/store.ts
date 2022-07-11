@@ -74,6 +74,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
             levelState: 'PLAYING',
             board: newBoard,
             piece: newPiece,
+            orientation: Orientation.up,
             x: initialX,
             y: initialY,
           }
@@ -87,7 +88,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
   dropAllTheWay() {
     if (get().levelState === 'PLAYING') {
       set((state) => {
-        // move piece +1 on the y-axis until there's overlap
+        // move piece one unit down on the y-axis until there's overlap
 
         let afterDropState
         let currentY = state.y
@@ -126,7 +127,7 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
       // get a new board without completed rows
       let newBoard = state.board
         .map((row, rowIndex) => {
-          // if not the last row and the row has no zeros -> row is full -> remove row
+          // if the last row and the row has no zeros -> row is full -> remove row
           if (rowIndex !== state.board.length - 1 && !row.includes(0)) {
             // mark the row for removal
             rowsRemoved++
@@ -175,6 +176,18 @@ export const useLevelStore = create<LevelStore>()((set, get) => ({
     let store = get()
     let nextState: LevelState = store.levelState === 'PAUSED' ? 'PLAYING' : 'PAUSED'
     store.setLevelState(nextState)
+  },
+
+  restart() {
+    set(() => ({
+      levelState: 'READY',
+      board: bigBoard,
+      piece: getRandomPiece(),
+      orientation: Orientation.up,
+      x: initialX,
+      y: initialY,
+      rowsCleared: 0,
+    }))
   },
 }))
 

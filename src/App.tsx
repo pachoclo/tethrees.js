@@ -8,7 +8,6 @@ import { ScoreCard } from './Components/ScoreCard'
 import { cameras } from './constants'
 import { useLevelStore } from './store/store'
 
-import { useState } from 'react'
 import GamepadControls from './Components/GamepadControls'
 
 function App() {
@@ -24,13 +23,11 @@ function App() {
         <OrbitControls makeDefault />
         {import.meta.env.DEV && !showHelp && <Stats showPanel={0} />}
       </Canvas>
+
       {!isMobile && showHelp && <Help />}
-      {isMobile && (
-        <>
-          <MobileControls />
-        </>
-      )}
       {!isMobile && <ScoreCard />}
+
+      {isMobile && <MobileControls />}
       <GamepadControls />
     </>
   )

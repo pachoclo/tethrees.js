@@ -36,4 +36,5 @@ export interface LevelStore {
   isGameOver: () => void
   toggleHelp: () => void
   pause: () => void
+  restart: () => void
 }
