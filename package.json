@@ -8,21 +8,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.22.3",
     "@react-three/fiber": "^8.6.0",
+    "@react-three/drei": "^9.24.4",
     "react": "^18.0.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-gamepad": "github:SBRK/react-gamepad",
     "three": "^0.143.0",
-    "zustand": "^4.0.0"
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-gamepad": "^1.0.3",
     "@vitejs/plugin-react": "^2.0.1",
-    "typescript": "^4.6.3",
+    "typescript": "^4.8.2",
     "vite": "^3.0.7"
   },
   "prettier": {
