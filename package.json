@@ -14,7 +14,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-gamepad": "github:SBRK/react-gamepad",
-    "three": "^0.143.0",
+    "three": "^0.146.0",
     "zustand": "^4.1.1"
   },
   "devDependencies": {
