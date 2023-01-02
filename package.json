@@ -15,7 +15,7 @@
     "react-dom": "^18.0.0",
     "react-gamepad": "github:SBRK/react-gamepad",
     "three": "^0.148.0",
-    "zustand": "^4.1.5"
+    "zustand": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
