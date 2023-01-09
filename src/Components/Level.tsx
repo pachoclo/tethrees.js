@@ -1,12 +1,13 @@
-import { GroupProps, useFrame } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
+import { Group, Vector3 } from 'three'
 import { useKeyboardControls } from '../hooks/useKeyboardControls'
 import { useLevelStore } from '../store/store'
 import { Board } from './Board'
 import { Piece } from './Piece'
 
 export function Level() {
-  const pieceRef = useRef<GroupProps>()
+  const pieceRef = useRef<Group>(null)
 
   // get state
   let levelState = useLevelStore((store) => store.levelState)
@@ -50,9 +51,9 @@ export function Level() {
       <Board />
       <Piece
         ref={pieceRef}
-        piece={piece}
+        pieceType={piece}
         orientation={piece.orientations[orientation]}
-        position={[x, -y, 0]}
+        position={new Vector3(x, -y, 0)}
       />
     </group>
   )

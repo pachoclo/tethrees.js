@@ -1,19 +1,21 @@
-import { Edges, Trail } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
+import { Edges } from '@react-three/drei'
+import { Vector3 } from '@react-three/fiber'
 import React from 'react'
+import { Group } from 'three'
 import { Constants } from '../constants'
 import { Piece as PieceType } from '../store/store.types'
 import { Block } from './Block'
 
 export type PieceTwoProps = {
-  piece: PieceType
+  pieceType: PieceType
   orientation: number[][]
   color?: string
   showGrid?: boolean
-} & GroupProps
+  position: Vector3
+}
 
-export const Piece = React.forwardRef<GroupProps | undefined, PieceTwoProps>(
-  ({ color = '#730FC3', orientation, showGrid = false, piece, ...props }, ref) => {
+export const Piece = React.forwardRef<Group, PieceTwoProps>(
+  ({ color = '#730FC3', orientation, showGrid = false, pieceType: piece, ...props }, ref) => {
     return (
       <group {...props} ref={ref}>
         {orientation.map((row, rowIndex) =>
@@ -47,7 +49,7 @@ function PieceGrid({ depthTest = true }: { depthTest?: boolean }) {
             .fill(null)
             .map((_, row) => (
               <mesh position={[col, row, 0]} key={`piece-box-${row}-${col}`}>
-                <meshBasicMaterial shadows={false} opacity={0} transparent />
+                <meshBasicMaterial opacity={0} transparent />
                 <boxGeometry args={[unit, unit, unit]} />
                 <Edges visible scale={1} renderOrder={1000}>
                   <meshBasicMaterial transparent color="#333" depthTest={depthTest} />
