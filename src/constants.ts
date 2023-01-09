@@ -1,4 +1,5 @@
 import { Camera } from '@react-three/fiber'
+import { OrthographicCamera, PerspectiveCamera, Vector3 } from 'three'
 import { LevelState, Piece } from './store/store.types'
 
 export const Constants = {
@@ -254,25 +255,8 @@ export const stateTransitions: { [key in LevelState]: LevelState[] } = {
 export const initialX = 4
 export const initialY = -3
 
-type Cameras = {
-  one: Camera
-  two: Camera
+export const cameras = {
+  one: new PerspectiveCamera(50, 2, 0.1, 100),
 }
 
-export const cameras: Cameras = {
-  one: {
-    fov: 50,
-    near: 0.1,
-    far: 1000,
-    position: [8, 6, 22],
-    orthographic: false,
-  },
-  two: {
-    fov: 50,
-    near: 0.1,
-    far: 1000,
-    position: [0, 0, 14],
-    zoom: 32,
-    orthographic: true,
-  },
-}
+cameras.one.position.set(8, 6, 22)
