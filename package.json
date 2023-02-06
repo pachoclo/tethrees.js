@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/fiber": "^8.10.1",
+    "@react-three/fiber": "^8.10.4",
     "@react-three/drei": "^9.56.8",
     "react": "^18.0.0",
     "react-device-detect": "^2.2.2",
