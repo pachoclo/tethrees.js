@@ -11,7 +11,7 @@
     "@react-three/fiber": "^8.10.4",
     "@react-three/drei": "^9.56.8",
     "react": "^18.0.0",
-    "react-device-detect": "^2.2.2",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.0.0",
     "react-gamepad": "github:SBRK/react-gamepad",
     "three": "^0.149.0",
